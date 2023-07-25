@@ -58,11 +58,14 @@
                     </div>
                 </div>
 <!--------------------------------------------------------->
+
                 <div class="chat-list"><!--lista contatti-->
-                    <nav class="my-nav d-flex justify-content-between p-2 border">
+                    <a href="" class="link-underline-light text-dark">
+                    <nav class="my-nav d-flex justify-content-between p-2 border"
+                    v-for="contatList in contatti ">
                         <div>
-                            <img :src=" " alt=""  class="profilo rounded-circle">
-                            <h5 class="nome-chat">{{}}</h5>
+                            <img :src="`avatar${contatList.avatar}.jpg`" alt=""  class="profilo rounded-circle">
+                            <h5 class="nome-chat">{{ contatList.name }}</h5>
                         </div>
     
                         <div class="text-secondary">
@@ -70,6 +73,7 @@
                         </div>
                         
                     </nav>
+                </a>
                 </div>
             </div>  
 
@@ -134,8 +138,3 @@
 
 
 
-<i class="fa-solid fa-magnifying-glass"></i><!--lente di ingrandimento-->
-<i class="fa-solid fa-circle-notch"></i><!--cerchio-->
-<i class="fa-solid fa-message"></i><!--mesaggio-->
-<i class="fa-solid fa-ellipsis-vertical"></i><!--puntini verticali-->
-<i class="fa-solid fa-bell"></i><!--campana-->
