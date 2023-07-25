@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--fontoso-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"><!--css-->
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--vue-->
+</head>
+
+<body class="sfondo-body">
+    <!-- <div class="bg-success verde"></div> -->
+
+    <div id="app">
+        <div class="container d-flex pb-5 bg-white h-100 p-50s"> 
+
+            <div class="left  overflow-auto d-flex"><!--profilo personale -->
+                <nav class="my-nav d-flex justify-content-between p-2 border">
+                    <div>
+                        <img src="avatar_1.jpg" alt=""  class="profilo rounded-circle">
+                        <h5 class="nome-chat">sofia</h5>
+                    </div>
+
+                    <div class="text-secondary">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    
+                </nav>
+<!--------------------------------------------------------->
+                <div class="notifiche border p-4 d-flex bg-info"><!--notifiche-->
+                    <div class="silensioso bg-white bg-white rounded-circle"> 
+                        <i class="fa-solid fa-bell  text-info  banner-icon"></i>
+                    </div>
+                    
+                    <div>
+                        <h6>ricevi notifiche</h6>
+                        <br>
+                        <a href="#" class="text-body-tertiary">ricevi notifiche adesso</a>
+                    </div>
+
+                </div>
+
+<!--------------------------------------------------------->
+                <div class="">
+                    <div class="input-group flex-nowrap p-1"><!--barra di ricerca-->
+                        <button class="btn btn-light borders"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" class="form-control" placeholder="ceca persone nella chat" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+<!--------------------------------------------------------->
+                <div class="chat-list"><!--lista contatti-->
+                    <nav class="my-nav d-flex justify-content-between p-2 border">
+                        <div>
+                            <img :src=" " alt=""  class="profilo rounded-circle">
+                            <h5 class="nome-chat">{{}}</h5>
+                        </div>
+    
+                        <div class="text-secondary">
+                            <p>12.20</p>
+                        </div>
+                        
+                    </nav>
+                </div>
+            </div>  
+
+
+<!--------------------------------------BARRA SINISTRA finita /// inizio parte destr ---------------------------------------------------------------------------->
+
+
+
+            <div class="right"><!--barra destra-->
+
+                <nav class="my-nav d-flex justify-content-between p-2 border">
+                    <div>
+                        <img src="avatar_1.jpg" alt=""  class="profilo rounded-circle">
+                        <h5 class="nome-chat">sofia</h5>
+                        <br>
+                        <p>ultimo acesso alle ore </p>
+                    </div>
+
+                    <div class="text-secondary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    
+                </nav><!--profilo personale -->
+
+                <div class="chat bg-warning-subtle"> <!-- parte interna chat      da vedere perche non va (flex-grow-1)           -->
+                    <!-- <img class="sfondo-chat" src="__MACOSX/mine.jpg" alt=""> provvisorio per capire cosa non va -->
+
+
+                    <div class="card   message-sent  bg-white messaggio  rounded-4"><!--messagio inviato-->
+                        <div class="card-body bg-success rounded-4">
+                            <p>prova inviato</p>
+                        </div>
+                    </div>
+
+                    <div class="card  message-received bg-white messaggio rounded-4"><!--messagio ricevuto-->
+                        <div class="card-body">
+                            <p>prova ricevuto</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tastiera d-flex"><!--tatsiera s-->
+                    <button class="btn btn-link"><i class="fa-regular fa-face-smile"></i></button>
+                    <input type="text" class="border-0 from-control  flex-grow-1" placeholder="ceca persone nella chat">
+                    <button class="btn btn-link"><i class="fa-solid fa-microphone"></i></button>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <script src="myscript.js"></script><!--js-->
+</body>
+
+</html>
+
+
+<!--ricora devo essere cliccabili anche le caselle delle chat -->
+<!---    --bs-gutter-x: 1.5rem;   da cambiare per levare quel bordo da container < sovrascrivere a 0 o nul -->
+
+
+
+<i class="fa-solid fa-magnifying-glass"></i><!--lente di ingrandimento-->
+<i class="fa-solid fa-circle-notch"></i><!--cerchio-->
+<i class="fa-solid fa-message"></i><!--mesaggio-->
+<i class="fa-solid fa-ellipsis-vertical"></i><!--puntini verticali-->
+<i class="fa-solid fa-bell"></i><!--campana-->

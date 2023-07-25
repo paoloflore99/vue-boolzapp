@@ -1,0 +1,106 @@
+.sfondo-body {
+    background: rgb(0,150,136);
+background: linear-gradient(180deg, rgba(0,150,136,1) 21%, rgba(187,189,177,1) 21%, rgba(187,189,177,1) 99%);
+}
+
+
+/* .riquadro {
+    background-color: black;
+    height: 70px;
+    width: 70px;
+}
+
+.mio-container {
+    margin-top: -50px;
+}
+
+.barre {
+    
+}
+
+.chat-principale{
+    display: inline;
+}
+
+.sfondo-chat {
+    background-image: url(mine.jpg);
+    width: 100%;
+    height: 800px;
+    padding-left: 0%;
+    padding-right: 0%;
+    flex-grow: 1;
+    overflow: auto;
+} */
+
+body {
+    height: 100vh;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+#app {
+    height: 100%;
+}
+
+.left {
+    flex-shrink: 0;
+    height: 100%;
+    width: 35%;
+    flex-direction: column;
+}
+
+.right {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.chat-list {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.profilo {
+    width: 60px;
+}
+
+.nome-chat {
+    display: inline;
+}
+
+/* .notifiche {
+    ;
+} */
+
+.chat {
+    background-image: url(../MACOSX/mine.jpg);
+    height: 700px;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.tastiera {
+    align-items: center;
+    gap: 1rem;
+    background-color: #bbbdb1;
+    /* flex-direction: column; */
+
+
+    /* position: relative;
+    margin-top: 730px; */
+    
+}
+
+/* .sfondo-chat {
+    width: 100%;
+    height: 730px;
+} */
+
+.messaggio{
+    
+    max-width: 350px;
+    min-width: 150px;
+}
+
+.message-sent {
+    margin-left: auto;
+}
