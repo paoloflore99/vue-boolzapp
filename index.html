@@ -60,7 +60,8 @@
 <!--------------------------------------------------------->
 
                 <div class="chat-list"><!--lista contatti-->
-                    <a href="" class="link-underline-light text-dark">
+                    <a href="" class="link-underline-light text-dark"
+                    @click="prendiContact(contatList)">
                     <nav class="my-nav d-flex justify-content-between p-2 border"
                     v-for="contatList in contatti ">
                         <div>
@@ -85,9 +86,10 @@
             <div class="right"><!--barra destra-->
 
                 <nav class="my-nav d-flex justify-content-between p-2 border">
-                    <div>
-                        <img src="avatar_1.jpg" alt=""  class="profilo rounded-circle">
-                        <h5 class="nome-chat">sofia</h5>
+                    <div
+                    v-for="contatList in contatti ">
+                        <img :src="`avatar${contatList.avatar}.jpg`" alt=""  class="profilo rounded-circle">
+                        <h5 class="nome-chat">{{ contatList.name }}</h5>
                         <br>
                         <p>ultimo acesso alle ore </p>
                     </div>
@@ -101,12 +103,14 @@
                 </nav><!--profilo personale -->
 
                 <div class="chat bg-warning-subtle"> <!-- parte interna chat      da vedere perche non va (flex-grow-1)           -->
-                    <!-- <img class="sfondo-chat" src="__MACOSX/mine.jpg" alt=""> provvisorio per capire cosa non va -->
+                    <!-- <img class="sfondo-chat" src="__MACOSX/mine.jpg" alt=""> provvisorio per capire cosa non va nel background-image: url(../MACOSX/mine.jpg);-->
 
 
                     <div class="card   message-sent  bg-white messaggio  rounded-4"><!--messagio inviato-->
-                        <div class="card-body bg-success rounded-4">
-                            <p>prova inviato</p>
+                        <div class="card-body bg-success rounded-4"
+                        v-for="contatList in contatti "
+                        >
+                            <p>{{ contatList.message }}</p>
                         </div>
                     </div>
 
