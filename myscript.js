@@ -90,11 +90,44 @@ const app = createApp ({
         
         };
     },
-    methods: {
-        prendiContact(contact) {
-            this.selectedContact = contact;
-        },
 
-        messaggioText: "",
-    }
-}).mount('#app')
+        methods: {
+          prendiContact(contact) {
+            this.selectedContact = contact;
+          },
+      
+          inviaMessaggio() {
+            if (this.messaggioText.trim() !== '') {
+              const nuovoMessaggio = {
+                date: new Date().toLocaleString(),
+                message: this.messaggioText.trim(),
+                status: 'sent',
+              };
+      
+              // Aggiungi il messaggio inviato alla lista dei messaggi del contatto selezionato
+              this.selectedContact.messages.push(nuovoMessaggio);
+      
+              // Aspetta un secondo e invia la risposta automatica
+              setTimeout(() => {
+                const rispostaAutomatica = {
+                  date: new Date().toLocaleString(),
+                  message: 'OK',
+                  status: 'received',
+                };
+      
+                // Aggiungi la risposta automatica alla lista dei messaggi del contatto selezionato
+                this.selectedContact.messages.push(rispostaAutomatica);
+              }, 1000); // 1000 millisecondi = 1 secondo
+      
+              this.messaggioText = ''; // Reset dell'input dopo l'invio del messaggio
+            }
+          },
+        },
+      }).mount('#app');
+      
+
+
+
+
+
+

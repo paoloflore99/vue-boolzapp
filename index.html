@@ -77,11 +77,7 @@
                 </div>
             </div>
 
-
             <!--------------------------------------BARRA SINISTRA finita /// inizio parte destr ---------------------------------------------------------------------------->
-
-
-
             <div class="right"><!--barra destra-->
                 <nav class="my-nav d-flex justify-content-between p-2 border">
                     <div>
@@ -117,8 +113,10 @@
                 <div class="tastiera d-flex"><!--tastiera-->
                     <button class="btn btn-link"><i class="fa-regular fa-face-smile"></i></button>
                     <input type="text" class="border-0 from-control flex-grow-1" placeholder="cerca persone nella chat" 
-                    v-model="messaggioText">
+                    v-model="messaggioText"
+                    @keydown.enter="inviaMessaggio">
                     <button class="btn btn-link"><i class="fa-solid fa-microphone"></i></button>
+                    
                 </div>
             </div>
         </div>
@@ -132,3 +130,4 @@
 
 <!--ricora devo essere cliccabili anche le caselle delle chat -->
 <!---    --bs-gutter-x: 1.5rem;   da cambiare per levare quel bordo da container < sovrascrivere a 0 o nul -->
+
