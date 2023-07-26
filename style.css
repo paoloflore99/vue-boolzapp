@@ -1,36 +1,7 @@
 .sfondo-body {
-    background: rgb(0,150,136);
-background: linear-gradient(180deg, rgba(0,150,136,1) 21%, rgba(187,189,177,1) 21%, rgba(187,189,177,1) 99%);
+    background: rgb(0, 150, 136);
+    background: linear-gradient(180deg, rgba(0, 150, 136, 1) 21%, rgba(187, 189, 177, 1) 21%, rgba(187, 189, 177, 1) 99%);
 }
-
-
-/* .riquadro {
-    background-color: black;
-    height: 70px;
-    width: 70px;
-}
-
-.mio-container {
-    margin-top: -50px;
-}
-
-.barre {
-    
-}
-
-.chat-principale{
-    display: inline;
-}
-
-.sfondo-chat {
-    background-image: url(mine.jpg);
-    width: 100%;
-    height: 800px;
-    padding-left: 0%;
-    padding-right: 0%;
-    flex-grow: 1;
-    overflow: auto;
-} */
 
 body {
     height: 100vh;
@@ -67,9 +38,6 @@ body {
     display: inline;
 }
 
-/* .notifiche {
-    ;
-} */
 
 .chat {
     background-image: url(../MACOSX/mine.jpg);
@@ -82,21 +50,11 @@ body {
     align-items: center;
     gap: 1rem;
     background-color: #bbbdb1;
-    /* flex-direction: column; */
-
-
-    /* position: relative;
-    margin-top: 730px; */
-    
 }
 
-/* .sfondo-chat {
-    width: 100%;
-    height: 730px;
-} */
 
-.messaggio{
-    
+.messaggio {
+
     max-width: 350px;
     min-width: 150px;
 }
@@ -105,6 +63,6 @@ body {
     margin-left: auto;
 }
 
-.my-nav{
-
+.formato-ora {
+    font-size: 0.8rem;
 }

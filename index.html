@@ -20,13 +20,13 @@
     <!-- <div class="bg-success verde"></div> -->
 
     <div id="app">
-        <div class="container d-flex pb-5 bg-white h-100 p-50s">
+        <div class="container via-bordi d-flex pb-5 bg-white h-100 p-50s">
 
             <div class="left  overflow-auto d-flex"><!--profilo personale -->
                 <nav class="my-nav d-flex justify-content-between p-2 border">
                     <div>
                         <img src="avatar_1.jpg" alt="" class="profilo rounded-circle">
-                        <h5 class="nome-chat">sofia</h5>
+                        <h5 class="nome-chat">Paolo</h5>
                     </div>
 
                     <div class="text-secondary">
@@ -61,14 +61,14 @@
                 <!--------------------------------------------------------->
 
                 <div class="chat-list"><!--lista contatti-->
-                    <a href="#" class="link-underline-light text-dark" v-for="contatList in contatti" :key="contatList.avatar"
-                        @click="prendiContact(contatList)">
+                    <a href="#" class="link-underline-light text-dark" v-for="contatList in contatti"
+                        :key="contatList.avatar" @click="prendiContact(contatList)">
                         <nav class="my-nav d-flex justify-content-between p-2 border">
                             <div>
                                 <img :src="`avatar${contatList.avatar}.jpg`" alt="" class="profilo rounded-circle">
                                 <h5 class="nome-chat">{{ contatList.name }}</h5>
                             </div>
-                
+
                             <div class="text-secondary">
                                 <p>12.20</p>
                             </div>
@@ -94,29 +94,32 @@
                     </div>
                 </nav><!--profilo personale -->
 
-                <div class="chat bg-warning-subtle"> <!-- parte interna chat -->
-                    <div class="card message-sent bg-white messaggio rounded-4"><!--messaggio inviato-->
-                        <div class="card-body bg-success rounded-4">
-                            <p v-if="selectedContact">messaggio inviato</p>
+                <div class="chat bg-warning-subtle">
+
+                    <div v-for="messaggio in selectedContact ? selectedContact.messages : []">
+                        <div v-if="messaggio.status === 'sent'"
+                            class="card message-sent bg-success messaggio rounded-4"><!--messaggio inviato-->
+                            <div class="card-body p-2">
+                                <p>{{ messaggio.message }}</p>
+                                <p class="formato-ora  ora-ivio text-white-50">{{ messaggio.date }}</p>
+                            </div>
+                        </div>
+                        <div v-else class="card message-received messaggio bg-white rounded-4"><!--messaggio ricevuto-->
+                            <div class="card-body">
+                                <p>{{ messaggio.message }}</p>
+                                <p class="formato-ora text-body-secondary">{{ messaggio.date }}</p>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="card message-received messaggio rounded-4"><!--messaggio ricevuto-->
-                        <div class="card-body" v-for="messaggio in selectedContact ? selectedContact.messages : []">
-                            <p>{{ messaggio.message }}</p>
-                            <p>{{ messaggio.date }}</p>
-                        </div>
-                    </div>
-
                 </div>
+
 
                 <div class="tastiera d-flex"><!--tastiera-->
                     <button class="btn btn-link"><i class="fa-regular fa-face-smile"></i></button>
-                    <input type="text" class="border-0 from-control flex-grow-1" placeholder="cerca persone nella chat" 
-                    v-model="messaggioText"
-                    @keydown.enter="inviaMessaggio">
+                    <input type="text" class="border-0 from-control flex-grow-1" placeholder="cerca persone nella chat"
+                        v-model="messaggioText" @keydown.enter="inviaMessaggio">
                     <button class="btn btn-link"><i class="fa-solid fa-microphone"></i></button>
-                    
+
                 </div>
             </div>
         </div>
@@ -127,7 +130,4 @@
 
 </html>
 
-
-<!--ricora devo essere cliccabili anche le caselle delle chat -->
-<!---    --bs-gutter-x: 1.5rem;   da cambiare per levare quel bordo da container < sovrascrivere a 0 o nul -->
-
+<!--    --bs-gutter-x: 1.5rem;  non riesco a sovrascriverlo -->
