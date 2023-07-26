@@ -83,16 +83,18 @@ const app = createApp ({
                         status: "received",
                     },
                 ],
+                
             },
         ],
+        selectedContact: null,
         
-
-        }
+        };
     },
     methods: {
+        prendiContact(contact) {
+            this.selectedContact = contact;
+        },
 
+        messaggioText: "",
     }
 }).mount('#app')
-
-
-

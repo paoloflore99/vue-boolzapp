@@ -20,12 +20,12 @@
     <!-- <div class="bg-success verde"></div> -->
 
     <div id="app">
-        <div class="container d-flex pb-5 bg-white h-100 p-50s"> 
+        <div class="container d-flex pb-5 bg-white h-100 p-50s">
 
             <div class="left  overflow-auto d-flex"><!--profilo personale -->
                 <nav class="my-nav d-flex justify-content-between p-2 border">
                     <div>
-                        <img src="avatar_1.jpg" alt=""  class="profilo rounded-circle">
+                        <img src="avatar_1.jpg" alt="" class="profilo rounded-circle">
                         <h5 class="nome-chat">sofia</h5>
                     </div>
 
@@ -34,14 +34,14 @@
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                    
+
                 </nav>
-<!--------------------------------------------------------->
+                <!--------------------------------------------------------->
                 <div class="notifiche border p-4 d-flex bg-info"><!--notifiche-->
-                    <div class="silensioso bg-white bg-white rounded-circle"> 
+                    <div class="silensioso bg-white bg-white rounded-circle">
                         <i class="fa-solid fa-bell  text-info  banner-icon"></i>
                     </div>
-                    
+
                     <div>
                         <h6>ricevi notifiche</h6>
                         <br>
@@ -50,84 +50,77 @@
 
                 </div>
 
-<!--------------------------------------------------------->
+                <!--------------------------------------------------------->
                 <div class="">
                     <div class="input-group flex-nowrap p-1"><!--barra di ricerca-->
                         <button class="btn btn-light borders"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <input type="text" class="form-control" placeholder="ceca persone nella chat" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control" placeholder="ceca persone nella chat"
+                            aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
                 </div>
-<!--------------------------------------------------------->
+                <!--------------------------------------------------------->
 
                 <div class="chat-list"><!--lista contatti-->
-                    <a href="" class="link-underline-light text-dark"
-                    @click="prendiContact(contatList)">
-                    <nav class="my-nav d-flex justify-content-between p-2 border"
-                    v-for="contatList in contatti ">
-                        <div>
-                            <img :src="`avatar${contatList.avatar}.jpg`" alt=""  class="profilo rounded-circle">
-                            <h5 class="nome-chat">{{ contatList.name }}</h5>
-                        </div>
-    
-                        <div class="text-secondary">
-                            <p>12.20</p>
-                        </div>
-                        
-                    </nav>
-                </a>
+                    <a href="#" class="link-underline-light text-dark" v-for="contatList in contatti" :key="contatList.avatar"
+                        @click="prendiContact(contatList)">
+                        <nav class="my-nav d-flex justify-content-between p-2 border">
+                            <div>
+                                <img :src="`avatar${contatList.avatar}.jpg`" alt="" class="profilo rounded-circle">
+                                <h5 class="nome-chat">{{ contatList.name }}</h5>
+                            </div>
+                
+                            <div class="text-secondary">
+                                <p>12.20</p>
+                            </div>
+                        </nav>
+                    </a>
                 </div>
-            </div>  
+            </div>
 
 
-<!--------------------------------------BARRA SINISTRA finita /// inizio parte destr ---------------------------------------------------------------------------->
+            <!--------------------------------------BARRA SINISTRA finita /// inizio parte destr ---------------------------------------------------------------------------->
 
 
 
             <div class="right"><!--barra destra-->
-
                 <nav class="my-nav d-flex justify-content-between p-2 border">
-                    <div
-                    v-for="contatList in contatti ">
-                        <img :src="`avatar${contatList.avatar}.jpg`" alt=""  class="profilo rounded-circle">
-                        <h5 class="nome-chat">{{ contatList.name }}</h5>
+                    <div>
+                        <img :src="`avatar${selectedContact ? selectedContact.avatar : ''}.jpg`" alt=""
+                            class="profilo rounded-circle">
+                        <h5 class="nome-chat">{{ selectedContact ? selectedContact.name : '' }}</h5>
                         <br>
                         <p>ultimo acesso alle ore </p>
                     </div>
-
                     <div class="text-secondary">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                    
                 </nav><!--profilo personale -->
 
-                <div class="chat bg-warning-subtle"> <!-- parte interna chat      da vedere perche non va (flex-grow-1)           -->
-                    <!-- <img class="sfondo-chat" src="__MACOSX/mine.jpg" alt=""> provvisorio per capire cosa non va nel background-image: url(../MACOSX/mine.jpg);-->
-
-
-                    <div class="card   message-sent  bg-white messaggio  rounded-4"><!--messagio inviato-->
-                        <div class="card-body bg-success rounded-4"
-                        v-for="contatList in contatti "
-                        >
-                            <p>{{ contatList.message }}</p>
+                <div class="chat bg-warning-subtle"> <!-- parte interna chat -->
+                    <div class="card message-sent bg-white messaggio rounded-4"><!--messaggio inviato-->
+                        <div class="card-body bg-success rounded-4">
+                            <p v-if="selectedContact">messaggio inviato</p>
                         </div>
                     </div>
 
-                    <div class="card  message-received bg-white messaggio rounded-4"><!--messagio ricevuto-->
-                        <div class="card-body">
-                            <p>prova ricevuto</p>
+                    <div class="card message-received messaggio rounded-4"><!--messaggio ricevuto-->
+                        <div class="card-body" v-for="messaggio in selectedContact ? selectedContact.messages : []">
+                            <p>{{ messaggio.message }}</p>
+                            <p>{{ messaggio.date }}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="tastiera d-flex"><!--tatsiera s-->
+                <div class="tastiera d-flex"><!--tastiera-->
                     <button class="btn btn-link"><i class="fa-regular fa-face-smile"></i></button>
-                    <input type="text" class="border-0 from-control  flex-grow-1" placeholder="ceca persone nella chat">
+                    <input type="text" class="border-0 from-control flex-grow-1" placeholder="cerca persone nella chat" 
+                    v-model="messaggioText">
                     <button class="btn btn-link"><i class="fa-solid fa-microphone"></i></button>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 
@@ -139,6 +132,3 @@
 
 <!--ricora devo essere cliccabili anche le caselle delle chat -->
 <!---    --bs-gutter-x: 1.5rem;   da cambiare per levare quel bordo da container < sovrascrivere a 0 o nul -->
-
-
-
